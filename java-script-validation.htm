@@ -1,0 +1,87 @@
+<html>
+<head>
+    <title>Girfa : Javascript Validation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        var Flag = true;
+        function Validate() {
+            Flag = true;
+            if ($("#txtRoll").val() == "")
+                AddCss("txtRoll");
+            if ($("#ddlClass").val() == "")
+                AddCss("ddlClass");
+            if ($("#txtMessage").val() == "")
+                AddCss("txtMessage");
+        }
+
+        function AddCss(id) {
+
+            Flag = false;
+
+            $("#" + id).css("border", "solid 1px red");
+            $('#' + id).animate({
+                'marginLeft': "+=10px", //moves right
+            }, 100);
+            $('#' + id).animate({
+                'marginLeft': "+=-10px", //moves right
+            }, 100);
+            $('#' + id).animate({
+                'marginLeft': "+=10px", //moves right
+            }, 100);
+            $('#' + id).animate({
+                'marginLeft': "+=-10px", //moves right
+            }, 100);
+        }
+        function RemoveCss(id) {
+            $("#" + id).css("border", '');
+
+        }
+        function BlurRemoveCss(id) {
+            if ($("#" + id).val() != "") {
+                RemoveCss(id);
+            }
+        }        
+        function SaveData() {
+            Validate();
+            if (Flag == true) {
+                alert("Congratulations Implement your code")
+            }
+        }
+    </script>
+    
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <td align="right"> Roll :</td>
+                <td><input type="text" id="txtRoll" onblur="BlurRemoveCss('txtRoll')" /></td>
+            </tr>
+            <tr>
+                <td align="right">  Class : </td>
+                <td>
+                    <select id="ddlClass" onblur="BlurRemoveCss('ddlClass')">
+                        <option value="">Select Course</option>
+                        <option value="1">O Level</option>
+                        <option value="2">A Level</option>
+                        <option value="3">B Level</option>
+                        <option value="4">C Level</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td align="right"> Message :</td>
+                <td><textarea id="txtMessage" onblur="BlurRemoveCss('txtMessage')"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="button" value="Save" onclick="SaveData()" /></td>
+            </tr>
+        </table>
+        
+      
+        
+        
+        
+    </form>
+</body>
+</html>
