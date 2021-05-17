@@ -1,3 +1,3 @@
 # FormValidator
-Jquery html form validate with animation 
-You validate any controls of a form using single function . You just need to check Flag variable status.
+Jquery html form validation with animation 
+You can validate any controls of form using single function . You just need to check Flag, A  status variable.
